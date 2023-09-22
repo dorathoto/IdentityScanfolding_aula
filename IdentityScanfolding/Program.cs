@@ -14,6 +14,13 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddIdentity<Usuario, Funcao>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
+//builder.Services.AddDefaultIdentity<Usuario>(options => options.SignIn.RequireConfirmedAccount = true)
+//    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+builder.Services.AddRazorPages();
+
+builder.Services.AddSingleton<RT.Comb.ICombProvider>(RT.Comb.Provider.Sql);
 
 builder.Services.AddControllersWithViews();
 
